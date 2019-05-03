@@ -101,6 +101,7 @@ function getMatch(string1, string2) {
         }
         S1Len = string1.length;
         S2Len = string2.length;
+        
     }
     // console.log("value of iand length of string and j and s2 len", i, string2.charAt(j) == "", S1Len, j, S2Len);
     if (string2.indexOf(string1) >= 0) {
