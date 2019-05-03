@@ -32,18 +32,18 @@ function getMatch(string1, string2) {
         if (string1.charAt(i) == string2.charAt(j)) {
             i++;
             j++;
-            console.log("Its a match", i, j);
+            // console.log("Its a match", i, j);
         }
         else {
             if (string2.charAt(j) == "*") {
-                console.log("StarMark", j, i, string2.charAt(j), string1.charAt(j));
+                // console.log("StarMark", j, i, string2.charAt(j), string1.charAt(j));
                 if (j == 0) {
                     j++;
 
                 }
                 else {
                     if (string1.charAt(i) == string2.charAt(j - 1)) {
-                        console.log("Should not come hear");
+                        // console.log("Should not come hear");
                         var tempI = i;
                         var tempCount = 0;
                         while (string1.charAt(tempI) == string2.charAt(j - 1)) {
@@ -55,45 +55,45 @@ function getMatch(string1, string2) {
                                 return true;
                             }
                         }
-                        console.log("temp Count---->", tempCount);
+                        // console.log("temp Count---->", tempCount);
                         i = tempI;
                         var tempJ = j;
                         j = j + tempCount;
 
                         for (var a = 0; a < tempCount; a++) {
-                            console.log("inserting character by replacing * ", string2.charAt(tempJ - 1), tempJ, a);
+                            // console.log("inserting character by replacing * ", string2.charAt(tempJ - 1), tempJ, a);
                             if (a == 0) {
                                 string2 = string2.splice(tempJ, 1, string2.charAt(tempJ - 1));
                             }
                             else {
                                 string2 = string2.splice(tempJ, 0, string2.charAt(tempJ - 1));
                             }
-                            console.log("value of string after splicing", string2);
+                            // console.log("value of string after splicing", string2);
                         }
                         tempJ = 0;
                         tempI = 0;
                         tempCount = 0;
                     }
                     else {
-                        console.log("Star but missmatch so ", i, j, string2);
+                        // console.log("Star but missmatch so ", i, j, string2);
                         string2 = string2.substring(0, j - 1) + string2.substring(j, S2Len)
                         // x = x.substring(0, 4) + "." + x.substring(4, x.length());
                         // j++;
                         // i = 0;
-                        console.log("Star but missmatch so after changes ", i, j, string2);
+                        // console.log("Star but missmatch so after changes ", i, j, string2);
                     }
                 }
             }
             else if (string2.charAt(j) == ".") {
-                console.log("QuestionMark");
+                // console.log("QuestionMark");
                 string2 = string2.splice(j, 1, string1.charAt(i));
                 i++;
                 j++;
-                console.log("value of string after removing .", string2, j, i, string1);
+                // console.log("value of string after removing .", string2, j, i, string1);
 
             }
             else {
-                console.log(" mismatch no dot  no star");
+                // console.log(" mismatch no dot  no star");
                 j++;
                 i = 0;
             }
